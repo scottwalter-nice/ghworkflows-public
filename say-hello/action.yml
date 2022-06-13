@@ -5,4 +5,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello Again ${{ inputs.name }}.
+    - name: Hello There
+      shell: bash
+      run: |
+          echo "Hello, ${{inputs.your_name}}"
+

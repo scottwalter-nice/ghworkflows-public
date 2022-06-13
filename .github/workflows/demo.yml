@@ -18,8 +18,8 @@ jobs:
     steps:
       - name: Say Hello
         run: |
-          echo "Hello Again1, ${{inputs.your_name}}"
-        shell: bash
+          echo "Hello, ${{inputs.your_name}}"
+
 
 
 
