@@ -16,27 +16,5 @@ jobs:
         run: |
           echo "Hello, ${{inputs.your_name}}"
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: refs/heads/${{ github.head_ref }}
-
-      - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: 'arn:aws:iam::369498121101:role/nice-devops-github-role'
-          aws-region: us-west-2
-
-      - name: Copy files to the test website with the AWS CLI
-        run: |
-          export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nice-devops --domain-owner 369498121101 --query authorizationToken --output text`
-          touch ~/.npmrc
-          echo "registry=https://nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/" > ~/.npmrc
-          echo "//nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/:always-auth=true" >> ~/.npmrc
-          echo "//nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/:_authToken=${CODEARTIFACT_AUTH_TOKEN}" >> ~/.npmrc
-
-      - name: Install Dependencies
-        run: |
-          npm install --legacy-peer-deps
 
 
