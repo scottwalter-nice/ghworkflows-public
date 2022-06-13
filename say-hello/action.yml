@@ -8,5 +8,5 @@ runs:
     - name: Hello There
       shell: bash
       run: |
-          echo "Hello, ${{inputs.your_name}}"
+          echo "Hello, ${{inputs.name}}"
 
