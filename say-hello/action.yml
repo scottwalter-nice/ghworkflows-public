@@ -9,4 +9,5 @@ runs:
       shell: bash
       run: |
           echo "Hello, ${{inputs.name}}"
+          echo "Good Bye, ${{inputs.name}}"
 
