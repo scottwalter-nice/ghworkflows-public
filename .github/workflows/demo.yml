@@ -19,6 +19,7 @@ jobs:
       - name: Say Hello
         run: |
           echo "Hello, ${{inputs.your_name}}"
+        shell: bash
 
 
 
